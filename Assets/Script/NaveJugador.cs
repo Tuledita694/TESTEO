@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,11 @@ public class NaveJugador : MonoBehaviour
 {
     private float _vel;
 
+
+
     private Vector2 minPantalla, maxPantalla;
+
+    [SerializeField] private GameObject prefaProjectil;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +34,26 @@ public class NaveJugador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        MovimentNau();
+        DisparaProyectil();
+    
+    
+    }
+
+    private void DisparaProyectil()
+    {
+        
+        if (Input.GetKeyDown("space"))
+        {
+            GameObject proyectil = Instantiate(prefaProjectil);
+            proyectil.transform.position = transform.position;
+        }
+
+
+    }
+
+    private void MovimentNau()
+    {
         float direccioIndicadaX = Input.GetAxisRaw("Horizontal");
         float direccioIndicadaY = Input.GetAxisRaw("Vertical");
         //Debug.Log("X: "+direccioIndicadaX +" - Y "+ direccioIndicadaY);
@@ -42,7 +67,5 @@ public class NaveJugador : MonoBehaviour
         novaPos.y = Mathf.Clamp(novaPos.y, minPantalla.y, maxPantalla.y);
 
         transform.position = novaPos;
-    
-    
     }
 }

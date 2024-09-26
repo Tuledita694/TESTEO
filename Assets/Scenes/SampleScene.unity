@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c0195202121f343961640b1afd0949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefaProjectil: {fileID: 3020654263525849285, guid: 13fdd605a583bed499688ef775bb8662, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
