@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class NaveJugador : MonoBehaviour
@@ -67,5 +68,14 @@ public class NaveJugador : MonoBehaviour
         novaPos.y = Mathf.Clamp(novaPos.y, minPantalla.y, maxPantalla.y);
 
         transform.position = novaPos;
+    }
+
+    private void OnTriggerEnter2D(Collider2D objecteTocat)
+    {
+        if (objecteTocat.tag == "Numero")
+        {
+            Destroy(gameObject);
+        }
+
     }
 }
